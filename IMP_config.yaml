@@ -1,0 +1,132 @@
+steps: "preprocessing assembly analysis binning taxonomy summary"
+email: ""
+sessionName: ""$sample""
+sessionKind: ""
+settingsLocked: "false"
+preprocessing_filtering: true
+mem:
+  normal_mem_per_core_gb: 8
+  big_mem_total_gb: 288
+  big_mem_cores: 8
+  big_mem_per_core_gb: 36
+tmp_dir: tmp
+raws: 
+  Metagenomics: ""
+  Metatranscriptomics: "/work/projects/co-infectomics/wwtp_berlin/"$sample"_R1.fastq.gz /work/projects/co-infectomics/wwtp_berlin/"$sample"_R2.fastq.gz"
+  LongReads: ""
+  LongReadTech: ""
+  Contigs: ""
+  Alignment_metagenomics: ""
+  Alignment_metatranscriptomics: ""
+  Gff: ""
+sample: ""$sample""
+outputdir: "/work/projects/co-infectomics/wwtp_berlin/"$sample"/run1"
+summarydir: "/work/projects/co-infectomics/wwtp_berlin/"$sample"/run1/summary"
+summary_steps: "stats vis"
+mongo_user: "myUserAdmin"
+mongo_port: 16626
+mongo_password: "testMongo"
+compress_level: "mid"
+db_path: "/work/projects/ecosystem_biology/local_tools/IMP3/databases"
+trimmomatic:
+  adapter: 
+    mg: "TruSeq3-PE"
+    mt: "TruSeq3-PE"
+  leading: 20
+  minlen: 40
+  palindrome_clip_threshold: 30
+  simple_clip_threshold: 10
+  trailing: 20
+  seed_mismatch: 2
+  window_size: 1
+  window_quality: 3
+  strictness: 0.5
+  target_length: 40
+nextseq: false
+filtering:
+#  filter: "phiX174"
+#  filter: "PhiX"
+  filter: hg38
+sortmerna:
+  files:
+    - rfam-5.8s-database-id98
+    - silva-arc-16s-id95
+    - silva-bac-16s-id90
+    - silva-euk-18s-id95
+    - rfam-5s-database-id98
+    - silva-arc-23s-id98
+    - silva-bac-23s-id98
+    - silva-euk-28s-id98
+assembly: 
+  hybrid: true
+  assembler: megahit
+  merge: "flye" # how to do merge(assembly A, assembly B from reads not mapping to A); none or "" = use only assembly A or "concat" or "flye"
+  mink: 25
+  maxk: 99
+  step: 4
+  cap3:
+    identity: 98
+    overlap: 100
+# hmm_DBs: "KEGG essential Pfam_A Resfams Cas dbCAN metacyc SwissProt TIGRPFAM"
+hmm_DBs: "KEGG essential Pfam_A Resfams Cas dbCAN"
+hmm_settings: 
+  KEGG:
+    cutoff: ""
+    trim: "--trimall"
+  essential:
+    cutoff: "--cut_tc"
+    trim: ""
+  metacyc:
+    cutoff: ""
+    trim: "--trimall"
+  Cas:
+    cutoff: ""
+    trim: ""
+  Pfam_A:
+    cutoff: "--cut_tc"
+    trim: ""
+  SwissProt:
+    cutoff: ""
+    trim: "--trimall"
+  TIGRPFAM:
+    cutoff: ""
+    trim: ""
+  dbCAN:
+    cutoff: ""
+    trim: ""
+  Resfams:
+    cutoff: ""
+    trim: ""
+COGS: "COG0012 COG0018 COG0215 COG0525 COG0541 COG0016 COG0172 COG0495 COG0533 COG0552"
+featureCountsStranding:
+  mt: 2
+  mg: 0
+proteomics:
+  filter_N_peptides: 2
+  host_proteome: ""
+  insert_variants: false
+binning:
+  binners: "MaxBin MetaBAT binny"
+  MaxBin:
+    cutoff: 1000
+  MetaBAT:
+    cutoff: 1500
+  binny:
+    pk: 10
+    nn: 4
+  vizbin:
+    memory: "100g"
+    dimension: 50
+    kmer: 5
+    perp: 30
+    cutoff: 1000
+krakendb: maxikraken2
+eukdetect:
+  run_eukdetect: false
+  eukdetect_dir: ../EukDetect
+  database_dir: eukdetect_database_v1
+  min_readlen: 60 #eukdetect does not recommend pre-trimming, but I don't see why we should keep stuff we don't want
+locked_normalMem: 0
+locked_bigMem: 0
+locked_bigCores: 0
+locked_bigTotal: 0 

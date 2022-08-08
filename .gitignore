@@ -1,3 +1,22 @@
+# MAC files
+*._.*
+*/._*
+._*
+.DS_Store
+*.DS_Store
+**/._README.md
+._README.md
+.snakemake
+*.snakemake
+slurm-*
+**/logs/*
+logs*
+**/snakemake_envs/**
+snakemake_envs/**
+snakemake_envs
+status/*
+*status
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
