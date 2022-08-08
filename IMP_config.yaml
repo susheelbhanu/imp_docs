@@ -11,8 +11,8 @@ mem:
   big_mem_per_core_gb: 36
 tmp_dir: tmp
 raws: 
-  Metagenomics: ""
-  Metatranscriptomics: "/work/projects/co-infectomics/wwtp_berlin/"$sample"_R1.fastq.gz /work/projects/co-infectomics/wwtp_berlin/"$sample"_R2.fastq.gz"
+  Metagenomics: "/work/projects/co-infectomics/wwtp_berlin/"$sample"_R1.fastq.gz /work/projects/co-infectomics/wwtp_berlin/"$sample"_R2.fastq.gz"
+  Metatranscriptomics:
   LongReads: ""
   LongReadTech: ""
   Contigs: ""
