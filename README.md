@@ -33,19 +33,19 @@ conda env create -f envs/requirements.yaml -n "snakemake"
 - `Edit or run` each file in the order listed below, i.e. after #4-editing samples, run #5-launching jobs
 
 
-1. `IMP_config.yaml`
+1. `IMP_config.yaml`: config file with necessary paths, databases, and parameters for snakemake
 
 
-2. `launchIMP.sh`
+2. `launchIMP.sh`: SLURM launcher script for `runIMP.sh`
 
 
-3. `runIMP.sh`
+3. `runIMP.sh`: bash script to launch IMP using snakemake
 
 
-4. `edit_samples.sh`
+4. `edit_samples.sh`: bash script to make sample folder, add config.yaml, launchIMP and runIMP scripts and simultaneously edit them
 
 
-5. `launch_jobs.sh`
+5. `launch_jobs.sh`: bash script to launch multiple samples
 
 
 -------------
@@ -57,6 +57,7 @@ conda env create -f envs/requirements.yaml -n "snakemake"
   2. `outputdir`: path in `line 23`
   3. `summarydir`: path n `line 24`
   4. `filtering`: select from `hg38/PhiX,PhiX174`
+  5. `db_path`: ensure access to dbs in `line 30` exist
 
 
 -- `launchIMP.sh`
@@ -66,6 +67,7 @@ conda env create -f envs/requirements.yaml -n "snakemake"
 
 -- `runIMP.sh`
   1. Check if access to the `/work/projects/ecosystem_biology/local_tools` is available
+  2. 
 
 
 -- `edit_samples.sh`
