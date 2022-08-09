@@ -120,7 +120,7 @@ binning:
     kmer: 5
     perp: 30
     cutoff: 1000
-krakendb: maxikraken2
+krakendb: "maxikraken2_1903_140GB"
 eukdetect:
   run_eukdetect: false
   eukdetect_dir: ../EukDetect
