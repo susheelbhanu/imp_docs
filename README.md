@@ -23,8 +23,10 @@ Create the main `snakemake` environment
 
 ```bash
 # create venv
-conda env create -f envs/requirements.yaml -n "snakemake"
+conda env create -f envs/requirements.yaml"
 ```
+Note: This will create an environment called `snakemake`. 
+If you already have a `snakemake conda env`, this is not required.
 
 -------------
 **Description**
