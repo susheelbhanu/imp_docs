@@ -20,13 +20,12 @@ git clone git@github.com:susheelbhanu/imp_docs.git
 ```
 
 Create the main `snakemake` environment
-
+Note: This will create an environment called `snakemake`. 
+If you already have a `snakemake conda env`, this is not required.
 ```bash
 # create venv
 conda env create -f envs/requirements.yaml"
 ```
-Note: This will create an environment called `snakemake`. 
-If you already have a `snakemake conda env`, this is not required.
 
 -------------
 **Description**
